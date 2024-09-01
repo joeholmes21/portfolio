@@ -40,7 +40,7 @@ const ModalExperience = ({isOpen, onRequestClose}) => {
             <ExperienceEntry
                 title="Jamo Tech Limited"
                 date="Aug. 20 - Jan. 23"
-                description="Systems Administrator working around the Gaming Sector. Providing secure solutions accompanied by private networks, backup solutions and machine optimisations. Mannaging server fleets of >300."/>
+                description="Systems Administrator working around the Gaming Sector. Providing secure solutions accompanied by private networks, backup solutions and machine optimisations. Managing server fleets of >300."/>
         </Modal>
     );
 };
