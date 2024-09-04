@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, entries}) => {
 
                 <button
                     onClick={onClose}
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    className="text-gray-500 hover:text-gray-700">
                     <FontAwesomeIcon icon={faClose} size="xl"/>
                 </button>
             </div>

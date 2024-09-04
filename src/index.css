@@ -11,6 +11,10 @@
     color-scheme: only dark;
 }
 
+*:focus {
+    outline: none;
+}
+
 .content {
     position: fixed;
     inset: 30% 40%;
@@ -29,7 +33,7 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 200;
+    z-index: 14;
 }
 
 @media (max-width: 1024px) {
