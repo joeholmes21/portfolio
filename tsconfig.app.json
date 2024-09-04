@@ -42,6 +42,7 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src"
+    "src",
+    "src/declarations.d.ts"
   ]
 }
