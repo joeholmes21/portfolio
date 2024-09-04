@@ -1,6 +1,12 @@
 import Modal from "@components/modals/Modal.tsx";
+import React from "react";
 
-export const ModalProjects = ({isOpen, onRequestClose}) => {
+interface ModalProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+}
+
+export const ModalProjects: React.FC<ModalProps> = ({isOpen, onRequestClose}) => {
     const projectEntries = [
         {title: "Portfolio Site", subtitle: "Aug. 24 - Sep. 24", description: "That's this site :D"},
     ];
@@ -8,7 +14,7 @@ export const ModalProjects = ({isOpen, onRequestClose}) => {
     return <Modal isOpen={isOpen} onClose={onRequestClose} title="Projects" entries={projectEntries}/>;
 };
 
-export const ModalExperience = ({isOpen, onRequestClose}) => {
+export const ModalExperience: React.FC<ModalProps> = ({isOpen, onRequestClose}) => {
     const experienceEntries = [
         {title: "BAE Systems", subtitle: "Sep. 23 - Pres.", description: "Apprentice Embedded Electronics Engineer..."},
         {title: "Jamo Tech Limited", subtitle: "Aug. 20 - Jan. 23", description: "Systems Administrator..."},
@@ -18,7 +24,7 @@ export const ModalExperience = ({isOpen, onRequestClose}) => {
                   entries={experienceEntries}/>;
 };
 
-export const ModalContact = ({isOpen, onRequestClose}) => {
+export const ModalContact: React.FC<ModalProps> = ({isOpen, onRequestClose}) => {
     const contactEntries = [
         {title: "LinkedIn", subtitle: "@joe-h-7a9389231"},
         {title: "E-Mail", subtitle: "joeholmes100.jh@gmail.com"},

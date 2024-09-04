@@ -40,7 +40,7 @@ const ComputerCanvas = () => {
         audio.play().then(() => {
             const currentIndex = modals.findIndex(modal => modal.name === currentModal);
             const nextIndex = (currentIndex + 1) % modals.length;
-            setCurrentModal(modals[nextIndex].name); // Update the current modal name
+            setCurrentModal(modals[nextIndex].name);
         });
     };
 
@@ -51,7 +51,7 @@ const ComputerCanvas = () => {
                 <pointLight position={[-25, 25, 5]} decay={0} intensity={Math.PI}/>
 
                 {/* Computer Mesh */}
-                <Computer position={[0, 0, 0]}/>
+                <Computer/>
 
                 {/* Independent Screen */}
                 <Screen modalName={currentModal} modals={modals} onClick={() => openModal(currentModal)}/>
