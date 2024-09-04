@@ -16,8 +16,16 @@ export const ModalProjects: React.FC<ModalProps> = ({isOpen, onRequestClose}) =>
 
 export const ModalExperience: React.FC<ModalProps> = ({isOpen, onRequestClose}) => {
     const experienceEntries = [
-        {title: "BAE Systems", subtitle: "Sep. 23 - Pres.", description: "Apprentice Embedded Electronics Engineer..."},
-        {title: "Jamo Tech Limited", subtitle: "Aug. 20 - Jan. 23", description: "Systems Administrator..."},
+        {
+            title: "BAE Systems",
+            subtitle: "Sep. 23 - Pres.",
+            description: "Apprentice Embedded Electronics Engineer working with software-defined radios, Petalinux and programming in C."
+        },
+        {
+            title: "Jamo Tech Limited",
+            subtitle: "Aug. 20 - Jan. 23",
+            description: "Systems Administrator working around the Gaming Sector. Providing secure solutions accompanied by private networks, backup solutions and machine optimisations. Managing server fleets of >300."
+        },
     ];
 
     return <Modal isOpen={isOpen} onClose={onRequestClose} title="Experience"
