@@ -59,7 +59,7 @@ const ComputerCanvas = () => {
                 {/* Independent Keyboard */}
                 <Keyboard onClick={nextModal}/>
 
-                <OrbitControls rotateSpeed={0.5} target={[-20, 25, 0]} maxPolarAngle={Math.PI / 2}/>
+                <OrbitControls rotateSpeed={0.5} target={[-20, 25, 0]} maxPolarAngle={Math.PI / 2} enablePan={false}/>
             </Canvas>
 
             <ModalExperience isOpen={isOpen('experienceModal')} onRequestClose={() => closeModal()}/>
