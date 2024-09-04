@@ -6,11 +6,54 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  scroll-behavior: smooth;
-  color-scheme: only dark;
+    font-family: Roboto, sans-serif;
+    scroll-behavior: smooth;
+    color-scheme: only dark;
 }
 
+.content {
+    position: fixed;
+    inset: 30% 40%;
+    background-color: #252525;
+    border-radius: 10px;
+    z-index: 15;
+    padding: 1rem;
+    box-shadow: #000 0.1rem 0.1rem 0.5rem;
+    overflow: scroll;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        inset: 20% 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        inset: 15% 5%;
+    }
+}
+
+@media (max-width: 640px) {
+    .content {
+        inset: 10% 2%;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        inset: 5% 2%;
+        padding: 0.5rem;
+    }
+}

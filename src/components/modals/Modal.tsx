@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
 import Entry from "@components/modals/Entry.tsx";
 
+ReactModal.setAppElement('#root');
+
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
@@ -11,26 +13,14 @@ interface ModalProps {
     entries?: { title: string; subtitle?: string; description?: string }[];
 }
 
-const style = {
-    content: {
-        inset: '30% 40%',
-        backgroundColor: '#252525',
-        borderRadius: "10px",
-        zIndex: 15,
-    },
-    overlay: {
-        backgroundColor: 'rgba(0, 0, 0, 0.75)',
-        zIndex: 14,
-    },
-};
-
 const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, entries}) => {
     return (
         <ReactModal
             isOpen={isOpen}
             onRequestClose={onClose}
-            style={style}
             ariaHideApp={true}
+            className="content"
+            overlayClassName="overlay"
         >
 
             <div className="flex items-center justify-between mb-4">
