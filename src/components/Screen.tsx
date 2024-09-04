@@ -1,15 +1,22 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import * as THREE from 'three';
+import {ModalType} from "@components/modals/ModalTypes.ts";
 
-const Screen = ({onClick, modalName, modals}) => {
+interface ScreenProps {
+    onClick: () => void;
+    modalName: string;
+    modals: ModalType[];
+}
+
+const Screen = ({onClick, modalName, modals}: ScreenProps) => {
     const ref = useRef<THREE.Mesh>(null!);
     const [texture, setTexture] = useState<THREE.Texture | null>(null);
-    const [color, setColor] = useState(modals[0].color);
+    const [color, setColor] = useState<string | null>(modals[0].color || null);
     const [hovered, setHovered] = useState(false);
 
     useEffect(() => {
-        document.body.style.cursor = hovered ? 'pointer' : 'auto'
-    }, [hovered])
+        document.body.style.cursor = hovered ? 'pointer' : 'auto';
+    }, [hovered]);
 
     useEffect(() => {
         const currentModal = modals.find(modal => modal.name === modalName);
@@ -27,14 +34,18 @@ const Screen = ({onClick, modalName, modals}) => {
                     undefined,
                     (error) => {
                         console.error('Error loading texture', error);
+                        setTexture(null);
+                        setColor(currentModal.color || 'gray');
                     }
                 );
             } else {
                 setTexture(null);
-                setColor(currentModal.color);
+                setColor(currentModal.color || 'gray');
             }
         }
     }, [modalName, modals]);
+
+    const geometry = useMemo(() => new THREE.PlaneGeometry(), []);
 
     return (
         <mesh
@@ -44,8 +55,9 @@ const Screen = ({onClick, modalName, modals}) => {
             rotation={[-0.08, 0.18, 0.01]}
             onClick={onClick}
             onPointerOver={() => setHovered(true)}
-            onPointerOut={() => setHovered(false)}>
-            <planeGeometry/>
+            onPointerOut={() => setHovered(false)}
+        >
+            <primitive object={geometry} attach="geometry"/>
             {texture ? (
                 <meshBasicMaterial map={texture}/>
             ) : (

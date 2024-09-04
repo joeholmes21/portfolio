@@ -1,7 +1,11 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import * as THREE from "three";
 
-const Keyboard = ({onClick}) => {
+interface KeyboardProps {
+    onClick: () => void;
+}
+
+const Keyboard: React.FC<KeyboardProps> = ({onClick}) => {
     const ref = useRef<THREE.Mesh>(null!);
     const [hovered, setHovered] = useState(false);
 

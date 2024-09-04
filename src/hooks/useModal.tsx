@@ -6,7 +6,7 @@ const useModal = () => {
     const audio = new Audio(popSound as string);
 
     const openModal = (modal: string) => {
-        audio.play().then(r => setActiveModal(modal));
+        audio.play().then(() => setActiveModal(modal));
     }
     const closeModal = () => setActiveModal(null);
 

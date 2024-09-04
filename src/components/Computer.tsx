@@ -3,16 +3,15 @@ import {OrbitControls, useGLTF} from '@react-three/drei';
 import {useRef, useState} from 'react';
 import * as THREE from 'three';
 import Screen from './Screen.tsx';
-import ModalExperience from './modals/ModalExperience.tsx';
 import computer from "@assets/3d/computer.glb";
 import useModal from "@hooks/useModal.tsx";
 import Keyboard from "./Keyboard.tsx";
-import ModalProjects from "./modals/ModalProjects.tsx";
-import ModalContact from "./modals/ModalContact.tsx";
 import contact from "@assets/img/contact.jpg";
 import experience from "@assets/img/experience.jpg";
 import projects from "@assets/img/projects.jpg";
 import keyboardClick from "@assets/audio/keyboard.mp3";
+import {ModalContact, ModalExperience, ModalProjects} from "./modals/Modals.tsx";
+import {ModalType} from "@components/modals/ModalTypes.ts";
 
 const Computer = () => {
     const ref = useRef<THREE.Mesh>(null!);
@@ -31,17 +30,17 @@ const ComputerCanvas = () => {
 
     const audio = new Audio(keyboardClick as string);
 
-    const modals = [
-        {name: "experienceModal", image: experience, color: "#33FF57"},
-        {name: "projectsModal", image: projects, color: "#FF5733"},
-        {name: "contactModal", image: contact, color: "#3357FF"},
+    const modals: ModalType[] = [
+        {name: "experienceModal", image: experience as string, color: "#33FF57"},
+        {name: "projectsModal", image: projects as string, color: "#FF5733"},
+        {name: "contactModal", image: contact as string, color: "#3357FF"},
     ];
 
     const nextModal = () => {
-        audio.play().then(r => {
+        audio.play().then(() => {
             const currentIndex = modals.findIndex(modal => modal.name === currentModal);
             const nextIndex = (currentIndex + 1) % modals.length;
-            setCurrentModal(modals[nextIndex].name);
+            setCurrentModal(modals[nextIndex].name); // Update the current modal name
         });
     };
 

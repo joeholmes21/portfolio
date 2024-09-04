@@ -2,12 +2,13 @@ import * as React from "react";
 import ReactModal from "react-modal";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClose} from "@fortawesome/free-solid-svg-icons";
+import Entry from "@components/modals/Entry.tsx";
 
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     title: string;
-    children: React.ReactNode;
+    entries?: { title: string; subtitle?: string; description?: string }[];
 }
 
 const style = {
@@ -23,7 +24,7 @@ const style = {
     },
 };
 
-const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, children}) => {
+const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, entries}) => {
     return (
         <ReactModal
             isOpen={isOpen}
@@ -41,7 +42,16 @@ const Modal: React.FC<ModalProps> = ({isOpen, onClose, title, children}) => {
                     <FontAwesomeIcon icon={faClose} size="xl"/>
                 </button>
             </div>
-            <div>{children}</div>
+            <div>
+                {entries && entries.map((entry, index) => (
+                    <Entry
+                        key={index}
+                        title={entry.title}
+                        subtitle={entry.subtitle}
+                        description={entry.description}
+                    />
+                ))}
+            </div>
 
         </ReactModal>
     );

@@ -1,9 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock, faPaperPlane, faScrewdriverWrench} from "@fortawesome/free-solid-svg-icons";
-import ModalExperience from "./modals/ModalExperience";
-import ModalContact from "./modals/ModalContact.tsx";
-import ModalProjects from "./modals/ModalProjects.tsx";
 import useModal from "@hooks/useModal.tsx";
+import {ModalContact, ModalExperience, ModalProjects} from "@components/modals";
 
 const NavBar = () => {
     const {isOpen, openModal, closeModal} = useModal();
