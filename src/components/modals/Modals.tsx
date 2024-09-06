@@ -34,7 +34,7 @@ export const ModalExperience: React.FC<ModalProps> = ({isOpen, onRequestClose}) 
 
 export const ModalContact: React.FC<ModalProps> = ({isOpen, onRequestClose}) => {
     const contactEntries = [
-        {title: "LinkedIn", subtitle: "@joe-h-7a9389231"},
+        {title: "LinkedIn", subtitle: "@joeholmes21"},
         {title: "E-Mail", subtitle: "joeholmes100.jh@gmail.com"},
     ];
 
